@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-08-16
+### Added
+- **RAG Schemas**: Created `src/rag/schemas.py` (`RetrievedChunk`, `RetrieverResult`).
+- **Dense Embedding Engine**: Implemented `src/rag/embed.py` wrapping `BAAI/bge-small-en` (384 dims, MIT License).
+- **FAISS Vector Indexer**: Implemented `src/rag/index.py` generating `data/index/faiss_index.bin` and `data/index/index_chunks.json`.
+- **Dental Evidence Retriever**: Implemented `src/rag/retrieve.py` (`DentalRetriever`) with query normalization and traceable clinical citation formatting e.g. `[ADA 2019, DOC-0001, CHK-0001-0002]`.
+- **Retrieval Benchmark**: Created `data/benchmarks/retrieval_benchmark.json` (15 query-doc pairs).
+- **Retrieval Benchmark Evaluator**: Implemented `src/rag/eval_retrieval.py` achieving **Recall@3 = 100%**, **Recall@5 = 100%**, **MRR = 0.9667**.
+- **Unit Tests**: Created `tests/test_rag.py` expanding test suite to 37 passing Pytest unit tests.
+
 ## [0.4.0] - 2026-08-16
 ### Added
 - **Clinical Determinability Specification**: Created `docs/DETERMINABILITY.md` defining 2-stage architecture and label-to-action mappings.

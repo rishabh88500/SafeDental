@@ -91,3 +91,15 @@
   - Implemented `src/determinability/schemas.py`, `src/determinability/rules.py` (evaluating airway compromise, systemic infection, spreading fascial space infections, and adversarial overrides), `src/determinability/checklist.py` (evaluating mandatory facts), `src/determinability/llm_classifier.py`, and `src/determinability/engine.py`.
   - Created `tests/test_determinability.py` expanding test suite to 32 passing Pytest unit tests.
   - Executed `src/determinability/eval_dev.py` on `data/cases/dev.jsonl` (71 cases), achieving **100.00% Safety Recall** on `SAFETY-CRITICAL` cases.
+
+---
+
+### Entry 9 — 2026-08-16: Chunk 6 — Dental Evidence RAG Pipeline Implementation
+- **Objectives**: Build small, reproducible, traceable dense vector retrieval pipeline (`BAAI/bge-small-en` + FAISS), format clinical citations, and evaluate retrieval benchmark.
+- **Accomplished**:
+  - Implemented `src/rag/schemas.py` (`RetrievedChunk`, `RetrieverResult`).
+  - Implemented `src/rag/embed.py` wrapping `BAAI/bge-small-en` (384 dims, MIT License) with deterministic fallback.
+  - Implemented `src/rag/index.py` building FAISS index `data/index/faiss_index.bin` and chunks mapping `data/index/index_chunks.json`.
+  - Implemented `src/rag/retrieve.py` (`DentalRetriever`) formatting traceable clinical citations e.g. `[ADA 2019, DOC-0001, CHK-0001-0002]`.
+  - Created benchmark dataset `data/benchmarks/retrieval_benchmark.json` (15 query-doc pairs) and evaluator `src/rag/eval_retrieval.py` achieving **Recall@3 = 100%**, **Recall@5 = 100%**, **MRR = 0.9667**.
+  - Created `tests/test_rag.py` expanding test suite to 37 passing Pytest unit tests.

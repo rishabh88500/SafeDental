@@ -1,0 +1,269 @@
+{
+  "metrics": {
+    "total_benchmark_queries": 15,
+    "hits_at_1": 14,
+    "hits_at_3": 15,
+    "hits_at_5": 15,
+    "recall_at_1": 93.33,
+    "recall_at_3": 100.0,
+    "recall_at_5": 100.0,
+    "mrr": 0.9667
+  },
+  "query_details": [
+    {
+      "query_id": "Q-001",
+      "query": "Are systemic antibiotics recommended for localized acute pulpitis without fever?",
+      "target_doc_id": "DOC-0001",
+      "retrieved_doc_ids": [
+        "DOC-0001",
+        "DOC-0001",
+        "DOC-0001",
+        "DOC-0002",
+        "DOC-0002"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 780.8949170000003
+    },
+    {
+      "query_id": "Q-002",
+      "query": "What is the first-line oral antibiotic dosage for odontogenic dental infection?",
+      "target_doc_id": "DOC-0002",
+      "retrieved_doc_ids": [
+        "DOC-0001",
+        "DOC-0002",
+        "DOC-0001",
+        "DOC-0001",
+        "DOC-0001"
+      ],
+      "rank": 2,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 88.36529199999887
+    },
+    {
+      "query_id": "Q-003",
+      "query": "What antibiotic should be prescribed if a dental patient has a severe penicillin allergy?",
+      "target_doc_id": "DOC-0002",
+      "retrieved_doc_ids": [
+        "DOC-0002",
+        "DOC-0001",
+        "DOC-0001",
+        "DOC-0001",
+        "DOC-0002"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 7.520999999998779
+    },
+    {
+      "query_id": "Q-004",
+      "query": "What are the red flag symptoms requiring immediate emergency hospital escalation?",
+      "target_doc_id": "DOC-0003",
+      "retrieved_doc_ids": [
+        "DOC-0003",
+        "DOC-0005",
+        "DOC-0003",
+        "DOC-0004",
+        "DOC-0002"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 101.79241600000033
+    },
+    {
+      "query_id": "Q-005",
+      "query": "Is trismus or inability to open mouth wider than 20mm considered an emergency?",
+      "target_doc_id": "DOC-0003",
+      "retrieved_doc_ids": [
+        "DOC-0003",
+        "DOC-0005",
+        "DOC-0005",
+        "DOC-0001",
+        "DOC-0003"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 18.526500000000112
+    },
+    {
+      "query_id": "Q-006",
+      "query": "What is the recommended non-opioid analgesic combination for severe acute dental pain?",
+      "target_doc_id": "DOC-0004",
+      "retrieved_doc_ids": [
+        "DOC-0004",
+        "DOC-0004",
+        "DOC-0004",
+        "DOC-0005",
+        "DOC-0002"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 7.191999999999865
+    },
+    {
+      "query_id": "Q-007",
+      "query": "Can ibuprofen and acetaminophen be taken together for toothache pain relief?",
+      "target_doc_id": "DOC-0004",
+      "retrieved_doc_ids": [
+        "DOC-0004",
+        "DOC-0004",
+        "DOC-0004",
+        "DOC-0001",
+        "DOC-0002"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 39.74766700000032
+    },
+    {
+      "query_id": "Q-008",
+      "query": "When should a patient with dental swelling be referred to urgent specialist care?",
+      "target_doc_id": "DOC-0005",
+      "retrieved_doc_ids": [
+        "DOC-0005",
+        "DOC-0002",
+        "DOC-0003",
+        "DOC-0001",
+        "DOC-0001"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 8.70758299999963
+    },
+    {
+      "query_id": "Q-009",
+      "query": "Should antibiotics be given for irreversible pulpitis prior to root canal treatment?",
+      "target_doc_id": "DOC-0001",
+      "retrieved_doc_ids": [
+        "DOC-0001",
+        "DOC-0001",
+        "DOC-0002",
+        "DOC-0002",
+        "DOC-0001"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 7.283958000000368
+    },
+    {
+      "query_id": "Q-010",
+      "query": "What are the signs of Ludwig's angina and floor of mouth swelling?",
+      "target_doc_id": "DOC-0003",
+      "retrieved_doc_ids": [
+        "DOC-0003",
+        "DOC-0003",
+        "DOC-0005",
+        "DOC-0001",
+        "DOC-0005"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 16.57720799999929
+    },
+    {
+      "query_id": "Q-011",
+      "query": "What is the maximum daily dose of ibuprofen for acute dental pain management?",
+      "target_doc_id": "DOC-0004",
+      "retrieved_doc_ids": [
+        "DOC-0004",
+        "DOC-0004",
+        "DOC-0001",
+        "DOC-0004",
+        "DOC-0002"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 6.956042000000551
+    },
+    {
+      "query_id": "Q-012",
+      "query": "How should acute apical abscess with localized fluctuant swelling be treated?",
+      "target_doc_id": "DOC-0001",
+      "retrieved_doc_ids": [
+        "DOC-0001",
+        "DOC-0002",
+        "DOC-0001",
+        "DOC-0005",
+        "DOC-0001"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 7.547167000000243
+    },
+    {
+      "query_id": "Q-013",
+      "query": "What oral antibiotic alternative is recommended for mild non-severe penicillin allergy?",
+      "target_doc_id": "DOC-0002",
+      "retrieved_doc_ids": [
+        "DOC-0002",
+        "DOC-0001",
+        "DOC-0002",
+        "DOC-0001",
+        "DOC-0001"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 19.751291000000393
+    },
+    {
+      "query_id": "Q-014",
+      "query": "Does difficulty swallowing or breathing warrant immediate emergency admission?",
+      "target_doc_id": "DOC-0003",
+      "retrieved_doc_ids": [
+        "DOC-0003",
+        "DOC-0005",
+        "DOC-0003",
+        "DOC-0004",
+        "DOC-0002"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 243.4868330000004
+    },
+    {
+      "query_id": "Q-015",
+      "query": "NICE dental referral guidelines for spreading infection.",
+      "target_doc_id": "DOC-0005",
+      "retrieved_doc_ids": [
+        "DOC-0005",
+        "DOC-0001",
+        "DOC-0001",
+        "DOC-0001",
+        "DOC-0002"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "execution_time_ms": 241.24841699999956
+    }
+  ]
+}

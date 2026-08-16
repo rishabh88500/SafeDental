@@ -1,0 +1,92 @@
+[
+  {
+    "query_id": "Q-001",
+    "query": "Are systemic antibiotics recommended for localized acute pulpitis without fever?",
+    "target_doc_id": "DOC-0001",
+    "expected_topic": "antibiotic_stewardship"
+  },
+  {
+    "query_id": "Q-002",
+    "query": "What is the first-line oral antibiotic dosage for odontogenic dental infection?",
+    "target_doc_id": "DOC-0002",
+    "expected_topic": "antibiotic_stewardship"
+  },
+  {
+    "query_id": "Q-003",
+    "query": "What antibiotic should be prescribed if a dental patient has a severe penicillin allergy?",
+    "target_doc_id": "DOC-0002",
+    "expected_topic": "antibiotic_stewardship"
+  },
+  {
+    "query_id": "Q-004",
+    "query": "What are the red flag symptoms requiring immediate emergency hospital escalation?",
+    "target_doc_id": "DOC-0003",
+    "expected_topic": "urgent_escalation_red_flags"
+  },
+  {
+    "query_id": "Q-005",
+    "query": "Is trismus or inability to open mouth wider than 20mm considered an emergency?",
+    "target_doc_id": "DOC-0003",
+    "expected_topic": "urgent_escalation_red_flags"
+  },
+  {
+    "query_id": "Q-006",
+    "query": "What is the recommended non-opioid analgesic combination for severe acute dental pain?",
+    "target_doc_id": "DOC-0004",
+    "expected_topic": "analgesia_protocols"
+  },
+  {
+    "query_id": "Q-007",
+    "query": "Can ibuprofen and acetaminophen be taken together for toothache pain relief?",
+    "target_doc_id": "DOC-0004",
+    "expected_topic": "analgesia_protocols"
+  },
+  {
+    "query_id": "Q-008",
+    "query": "When should a patient with dental swelling be referred to urgent specialist care?",
+    "target_doc_id": "DOC-0005",
+    "expected_topic": "referral_criteria"
+  },
+  {
+    "query_id": "Q-009",
+    "query": "Should antibiotics be given for irreversible pulpitis prior to root canal treatment?",
+    "target_doc_id": "DOC-0001",
+    "expected_topic": "antibiotic_stewardship"
+  },
+  {
+    "query_id": "Q-010",
+    "query": "What are the signs of Ludwig's angina and floor of mouth swelling?",
+    "target_doc_id": "DOC-0003",
+    "expected_topic": "urgent_escalation_red_flags"
+  },
+  {
+    "query_id": "Q-011",
+    "query": "What is the maximum daily dose of ibuprofen for acute dental pain management?",
+    "target_doc_id": "DOC-0004",
+    "expected_topic": "analgesia_protocols"
+  },
+  {
+    "query_id": "Q-012",
+    "query": "How should acute apical abscess with localized fluctuant swelling be treated?",
+    "target_doc_id": "DOC-0001",
+    "expected_topic": "antibiotic_stewardship"
+  },
+  {
+    "query_id": "Q-013",
+    "query": "What oral antibiotic alternative is recommended for mild non-severe penicillin allergy?",
+    "target_doc_id": "DOC-0002",
+    "expected_topic": "antibiotic_stewardship"
+  },
+  {
+    "query_id": "Q-014",
+    "query": "Does difficulty swallowing or breathing warrant immediate emergency admission?",
+    "target_doc_id": "DOC-0003",
+    "expected_topic": "urgent_escalation_red_flags"
+  },
+  {
+    "query_id": "Q-015",
+    "query": "NICE dental referral guidelines for spreading infection.",
+    "target_doc_id": "DOC-0005",
+    "expected_topic": "referral_criteria"
+  }
+]
