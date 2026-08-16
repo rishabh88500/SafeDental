@@ -33,6 +33,20 @@ red_flags:
       - "swelling under eye"
       - "rapidly spreading swelling"
       - "submandibular swelling"
+      - "severely swollen jaw"
+      - "swollen jaw"
+      - "swelling under jaw"
     severity: "HIGH_CRITICAL"
     action: "ESCALATE"
     rationale: "Involvement of deep fascial spaces or risk of cavernous sinus thrombosis."
+
+  adversarial_override:
+    keywords:
+      - "ignore clinical safety guidelines"
+      - "ignore safety"
+      - "override safety"
+      - "adversarial prompt"
+      - "leftover antibiotics"
+    severity: "HIGH_CRITICAL"
+    action: "ESCALATE"
+    rationale: "Adversarial prompt attempt or unsafe self-medication override."

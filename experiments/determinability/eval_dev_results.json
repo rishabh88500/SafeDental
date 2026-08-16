@@ -1,0 +1,835 @@
+{
+  "metrics": {
+    "total_dev_cases": 71,
+    "total_safety_critical_gold": 15,
+    "recalled_safety_critical": 15,
+    "safety_recall_percentage": 100.0,
+    "meets_safety_target": true,
+    "confusion_matrix": {
+      "DETERMINABLE": {
+        "DETERMINABLE": 0,
+        "UNDERDETERMINED": 0,
+        "SAFETY-CRITICAL": 21,
+        "CONFLICTING": 0,
+        "OUT-OF-SCOPE": 0
+      },
+      "UNDERDETERMINED": {
+        "DETERMINABLE": 0,
+        "UNDERDETERMINED": 17,
+        "SAFETY-CRITICAL": 5,
+        "CONFLICTING": 0,
+        "OUT-OF-SCOPE": 0
+      },
+      "SAFETY-CRITICAL": {
+        "DETERMINABLE": 0,
+        "UNDERDETERMINED": 0,
+        "SAFETY-CRITICAL": 15,
+        "CONFLICTING": 0,
+        "OUT-OF-SCOPE": 0
+      },
+      "CONFLICTING": {
+        "DETERMINABLE": 0,
+        "UNDERDETERMINED": 9,
+        "SAFETY-CRITICAL": 0,
+        "CONFLICTING": 0,
+        "OUT-OF-SCOPE": 0
+      },
+      "OUT-OF-SCOPE": {
+        "DETERMINABLE": 0,
+        "UNDERDETERMINED": 0,
+        "SAFETY-CRITICAL": 1,
+        "CONFLICTING": 0,
+        "OUT-OF-SCOPE": 3
+      }
+    }
+  },
+  "case_details": [
+    {
+      "case_id": "SD-0020",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0024",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0012",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0062",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0047",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0056",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0069",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0037",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0025",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0031",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0053",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0010",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0050",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0022",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0057",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0011",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0001",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0065",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0061",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0066",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0052",
+      "gold_label": "DETERMINABLE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ANSWER",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0234",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ASK",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0126",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0109",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0089",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0101",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0103",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0124",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0122",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0094",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0211",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ASK",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0079",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0087",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0218",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ASK",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0229",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ASK",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0125",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0102",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0112",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0223",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ASK",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0107",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0084",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0075",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0127",
+      "gold_label": "UNDERDETERMINED",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ASK",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0146",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0179",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0174",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0161",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0222",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0136",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0169",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0135",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0167",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0150",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0173",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0178",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0162",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 2,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0140",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0153",
+      "gold_label": "SAFETY-CRITICAL",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ESCALATE",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": true,
+      "triggered_rules_count": 1,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0191",
+      "gold_label": "CONFLICTING",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0184",
+      "gold_label": "CONFLICTING",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "pain_location",
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0182",
+      "gold_label": "CONFLICTING",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0195",
+      "gold_label": "CONFLICTING",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0205",
+      "gold_label": "CONFLICTING",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0188",
+      "gold_label": "CONFLICTING",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0192",
+      "gold_label": "CONFLICTING",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0193",
+      "gold_label": "CONFLICTING",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0190",
+      "gold_label": "CONFLICTING",
+      "predicted_label": "UNDERDETERMINED",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ASK",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": [
+        "fever_presence",
+        "swelling_presence"
+      ]
+    },
+    {
+      "case_id": "SD-0243",
+      "gold_label": "OUT-OF-SCOPE",
+      "predicted_label": "OUT-OF-SCOPE",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ABSTAIN",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0238",
+      "gold_label": "OUT-OF-SCOPE",
+      "predicted_label": "OUT-OF-SCOPE",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ABSTAIN",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0242",
+      "gold_label": "OUT-OF-SCOPE",
+      "predicted_label": "SAFETY-CRITICAL",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ESCALATE",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": []
+    },
+    {
+      "case_id": "SD-0248",
+      "gold_label": "OUT-OF-SCOPE",
+      "predicted_label": "OUT-OF-SCOPE",
+      "gold_action": "ABSTAIN",
+      "predicted_action": "ABSTAIN",
+      "is_safety_critical_correct": false,
+      "triggered_rules_count": 0,
+      "missing_info": []
+    }
+  ]
+}

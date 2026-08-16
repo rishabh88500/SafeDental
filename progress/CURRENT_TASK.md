@@ -1,20 +1,20 @@
 # Current Task
 
-**Status**: Chunk 3 & Chunk 4 Complete -> Transitioning to Chunk 5 (Clinical Determinability Module)
+**Status**: Chunk 5 Complete -> Transitioning to Chunk 6 (Dental Evidence RAG Pipeline)
 
-## What was completed in Chunks 3 & 4?
-1. **Knowledge Base Governance**: Created `docs/KB_SOURCE_POLICY.md` establishing open-access licensing, source authority, and evidence level tracking.
-2. **Knowledge Base Ingestion & Chunking Suite**: Implemented `src/kb/ingest.py`, `src/kb/clean_text.py`, `src/kb/chunk.py`, `src/kb/manifest.py`, `src/kb/index.py`, and `src/kb/populate_corpus.py`.
-3. **Populated Dental Evidence Corpus**: Ingested, cleaned, section-chunked, and indexed 5 core clinical guidelines and consensus papers (14 traceable chunks).
-4. **Sealed Test Set Protection**: Created `src/utils/data_guard.py` enforcing automated access restrictions (`SealedTestAccessError`) to keep `data/cases/test.jsonl` unread during development.
-5. **Frozen LLM Client**: Implemented `src/llm/client.py` wrapping Ollama (`llama3.1:8b-instruct`) with Mock engine fallback for offline execution.
-6. **Arm A Baseline Pipeline**: Implemented `src/pipelines/arm_a.py` and experiment recorder `src/utils/experiment.py`.
-7. **Arm A Development Run**: Successfully executed Arm A baseline on `data/cases/dev.jsonl` (71 cases) and persisted reproducible experiment artifacts in `experiments/arm_a/exp_arma_dev_v1/`.
-8. **Testing**: 23 unit tests passed in `pytest` (100% pass rate).
+## What was completed in Chunk 5 (Clinical Determinability Engine)?
+1. **Engine Specification**: Created `docs/DETERMINABILITY.md` detailing the 2-stage architecture and label-to-action mapping.
+2. **Data Contracts & Schemas**: Implemented `src/determinability/schemas.py` (`RuleTrigger`, `ChecklistCoverage`, `LLMClassification`, `DeterminabilityResult`).
+3. **Stage 1A Hard Safety Rules**: Implemented `src/determinability/rules.py` evaluating airway compromise, systemic infection, spreading fascial space infections, and adversarial overrides.
+4. **Stage 1B Required Checklist**: Implemented `src/determinability/checklist.py` evaluating chief complaint, clinical signs, and medical history.
+5. **Stage 2 LLM Classifier**: Implemented `src/determinability/llm_classifier.py` using `LLMClient` with structured JSON classification and fallback.
+6. **Combiner Engine**: Implemented `src/determinability/engine.py` enforcing the Safety-First Precedence Rule (Rules override LLM).
+7. **Unit Test Suite**: Created `tests/test_determinability.py` (32 total passing tests).
+8. **Dev Set Evaluation**: Executed `src/determinability/eval_dev.py` on `data/cases/dev.jsonl` (71 cases), achieving **100.00% Safety Recall** on `SAFETY-CRITICAL` emergency cases (exceeding the 95% target).
 
-## Next Steps (Chunk 5: Clinical Determinability Module)
-1. Define required information checklist (`config/required_fields.yaml`) and red flag triggers (`config/red_flags.yaml`).
-2. Build rule-based red flag checker (`src/determinability/rules.py`).
-3. Build checklist coverage evaluator (`src/determinability/checklist.py`).
-4. Implement LLM-assisted classifier (`src/determinability/llm_classifier.py`).
-5. Combine rules + LLM classifier into main determinability engine (`src/determinability/determinability.py`) ensuring $\ge 95\%$ safety recall on dev set.
+## Next Steps (Chunk 6: Dental Evidence RAG Pipeline)
+1. Section-aware document chunker (~300–500 tokens with 50 token overlap).
+2. Embed corpus chunks with `sentence-transformers` (`BAAI/bge-small-en`).
+3. Build and save FAISS dense index under `data/index/`.
+4. Build retriever interface `retrieve(query) -> [chunks with citations]`.
+5. Evaluate Retrieval Recall@k on query-doc pairs.

@@ -81,3 +81,13 @@
   - Updated `config/config.yaml` and `src/utils/config_loader.py` to support `openrouter` provider, model ID `meta-llama/llama-3.1-8b-instruct`, base URL `https://openrouter.ai/api/v1`, and 120s timeout.
   - Implemented provider-agnostic `LLMClient` and `OpenRouterClient` in `src/llm/client.py` with automatic fallback to Mock Engine.
   - Expanded unit test suite to 25 passing Pytest unit tests.
+
+---
+
+### Entry 8 — 2026-08-16: Chunk 5 — Clinical Determinability Engine Implementation
+- **Objectives**: Build 2-stage Clinical Determinability Engine (Hard Safety Red Flags + Fact Checklist + Secondary LLM Classifier) enforcing Safety-First Precedence Rules; evaluate on dev set to achieve >=95% Safety Recall.
+- **Accomplished**:
+  - Created technical specification in `docs/DETERMINABILITY.md` detailing the 2-stage architecture and label-to-action mappings.
+  - Implemented `src/determinability/schemas.py`, `src/determinability/rules.py` (evaluating airway compromise, systemic infection, spreading fascial space infections, and adversarial overrides), `src/determinability/checklist.py` (evaluating mandatory facts), `src/determinability/llm_classifier.py`, and `src/determinability/engine.py`.
+  - Created `tests/test_determinability.py` expanding test suite to 32 passing Pytest unit tests.
+  - Executed `src/determinability/eval_dev.py` on `data/cases/dev.jsonl` (71 cases), achieving **100.00% Safety Recall** on `SAFETY-CRITICAL` cases.

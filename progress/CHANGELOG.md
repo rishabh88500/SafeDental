@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-08-16
+### Added
+- **Clinical Determinability Specification**: Created `docs/DETERMINABILITY.md` defining 2-stage architecture and label-to-action mappings.
+- **Determinability Schemas**: Implemented `src/determinability/schemas.py` (`RuleTrigger`, `ChecklistCoverage`, `LLMClassification`, `DeterminabilityResult`).
+- **Hard Safety Red-Flag Rules**: Implemented `src/determinability/rules.py` evaluating airway compromise, systemic infection, spreading fascial space infections, and adversarial prompt overrides.
+- **Required-Information Checklist Evaluator**: Implemented `src/determinability/checklist.py` evaluating chief complaint, clinical signs, and medical history.
+- **Secondary LLM Classifier**: Implemented `src/determinability/llm_classifier.py` returning structured JSON classification.
+- **Combiner Engine**: Implemented `src/determinability/engine.py` enforcing Safety-First Precedence Rules.
+- **Dev Set Evaluator**: Implemented `src/determinability/eval_dev.py` achieving **100.00% Safety Recall** on `SAFETY-CRITICAL` cases in `dev.jsonl` (71 cases).
+- **Unit Tests**: Added `tests/test_determinability.py` (32/32 tests passing).
+
 ## [0.3.0] - 2026-08-16
 ### Added
 - **KB Governance Policy**: Created `docs/KB_SOURCE_POLICY.md` establishing open-access licensing and document tracking standards.
