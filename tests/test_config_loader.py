@@ -19,7 +19,8 @@ def test_load_config():
     cfg = load_config()
     assert isinstance(cfg, AppConfig)
     assert cfg.project.name == "SafeDental"
-    assert cfg.model.name == "llama3.1:8b-instruct"
+    assert cfg.model.provider == "openrouter"
+    assert cfg.model.name == "meta-llama/llama-3.1-8b-instruct"
     assert cfg.model.temperature == 0.0
     assert cfg.model.seed == 42
     assert cfg.retrieval.top_k == 5

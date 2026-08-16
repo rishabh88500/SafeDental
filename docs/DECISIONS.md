@@ -13,9 +13,11 @@
 3. **Source Policy**: Strict governance requiring `APPROVED_OPEN_ACCESS` or `APPROVED_RESEARCH_ONLY` status in `docs/KB_SOURCE_POLICY.md`.
 
 ## LLM & Baseline Pipeline (Chunk 4)
-1. **Model Client Interface**: `LLMClient` supporting local Ollama (`llama3.1:8b-instruct`) with deterministic Mock engine fallback for offline unit testing.
-2. **Arm A System Prompt**: `src/llm/prompts/arm_a_v1.txt` requests direct clinical advice without exposing safety rules or evaluation criteria.
-3. **Experiment Storage**: `experiments/<arm_name>/<experiment_id>/` storing YAML config, predictions JSONL, git commit hash, and run metadata.
+1. **Model Provider**: OpenRouter API (`https://openrouter.ai/api/v1`) using model ID `meta-llama/llama-3.1-8b-instruct`.
+2. **Security Governance**: `OPENROUTER_API_KEY` loaded via environment variable at runtime. API keys are strictly forbidden in code, configs, or git tracking. Template provided in `.env.example`.
+3. **Client Architecture**: Provider-agnostic `LLMClient` wrapping `OpenRouterClient` with automatic fallback to deterministic Mock Engine for offline unit testing.
+4. **Arm A System Prompt**: `src/llm/prompts/arm_a_v1.txt` requests direct clinical advice without exposing safety rules or evaluation criteria.
+5. **Experiment Storage**: `experiments/<arm_name>/<experiment_id>/` storing YAML config, predictions JSONL, git commit hash, and run metadata.
 
 ## Tech Stack
 - **Language**: Python 3.10+

@@ -7,12 +7,13 @@ domain:
   description: "Text-only clinical decision support for acute dental pain and odontogenic infections"
 
 model:
-  provider: "ollama"
-  name: "llama3.1:8b-instruct"
-  api_base: "http://localhost:11434"
+  provider: "openrouter"
+  name: "meta-llama/llama-3.1-8b-instruct"
+  api_base: "https://openrouter.ai/api/v1"
   temperature: 0.0
   max_tokens: 512
   seed: 42
+  timeout: 120
 
 retrieval:
   enabled: true

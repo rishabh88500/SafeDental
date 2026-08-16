@@ -71,3 +71,13 @@
   - Created `.gitignore` ignoring caches, environments, and logs.
   - Initialized Git repository (`git init`).
   - Created root commit: `feat: complete Chunk 1, Chunk 2, Chunk 3, and Chunk 4 implementation` (`805fab7`).
+
+---
+
+### Entry 7 — 2026-08-16: OpenRouter Provider Integration & Security Hardening
+- **Objectives**: Migrate LLM inference backend to OpenRouter (`https://openrouter.ai/api/v1`) using `meta-llama/llama-3.1-8b-instruct`, implement strict API key security governance via environment variables, and create `.env.example`.
+- **Accomplished**:
+  - Created `.env.example` defining `OPENROUTER_API_KEY=your_key_here` and verified `.env` exclusion in `.gitignore`.
+  - Updated `config/config.yaml` and `src/utils/config_loader.py` to support `openrouter` provider, model ID `meta-llama/llama-3.1-8b-instruct`, base URL `https://openrouter.ai/api/v1`, and 120s timeout.
+  - Implemented provider-agnostic `LLMClient` and `OpenRouterClient` in `src/llm/client.py` with automatic fallback to Mock Engine.
+  - Expanded unit test suite to 25 passing Pytest unit tests.

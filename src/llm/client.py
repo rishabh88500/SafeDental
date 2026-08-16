@@ -1,3 +1,4 @@
+import os
 import json
 import requests
 from typing import List, Dict, Any, Optional
@@ -6,11 +7,79 @@ from src.utils.logging import get_logger
 
 logger = get_logger("llm_client")
 
+# Attempt to load .env if python-dotenv is present
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
+
+class OpenRouterClient:
+    """
+    OpenRouter API Client for OpenAI-compatible chat completions.
+    Uses OPENROUTER_API_KEY from environment variables.
+    """
+
+    def __init__(self, api_base: str, model_name: str, timeout: int = 120):
+        self.api_base = api_base.rstrip("/")
+        self.model_name = model_name
+        self.timeout = timeout
+
+    def get_api_key(self) -> Optional[str]:
+        return os.getenv("OPENROUTER_API_KEY")
+
+    def generate(
+        self,
+        messages: List[Dict[str, str]],
+        temperature: float = 0.0,
+        max_tokens: int = 512,
+        seed: int = 42
+    ) -> Optional[str]:
+        api_key = self.get_api_key()
+        if not api_key:
+            logger.warning("OPENROUTER_API_KEY environment variable is missing.")
+            return None
+
+        url = f"{self.api_base}/chat/completions"
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "HTTP-Referer": "https://github.com/rishabh88500/SafeDental",
+            "X-Title": "SafeDental Research Project",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "model": self.model_name,
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+            "seed": seed
+        }
+
+        try:
+            response = requests.post(url, headers=headers, json=payload, timeout=self.timeout)
+            if response.status_code == 200:
+                resp_json = response.json()
+                choices = resp_json.get("choices", [])
+                if choices:
+                    content = choices[0].get("message", {}).get("content", "")
+                    logger.info(f"OpenRouter response received for '{self.model_name}' ({len(content)} chars)")
+                    return content
+                else:
+                    logger.warning("OpenRouter returned empty choices array.")
+                    return None
+            else:
+                logger.warning(f"OpenRouter API returned HTTP {response.status_code}: {response.text[:200]}")
+                return None
+        except Exception as e:
+            logger.warning(f"OpenRouter API connection failed: {e}")
+            return None
+
 
 class LLMClient:
     """
-    Unified frozen LLM client.
-    Supports Ollama HTTP API backend with automatic fallback to Mock Engine for testing.
+    Provider-agnostic unified frozen LLM client interface.
+    Supports OpenRouter API with automatic fallback to Mock Engine for testing & offline execution.
     """
 
     def __init__(self, config: Optional[AppConfig] = None, force_mock: bool = False):
@@ -19,6 +88,13 @@ class LLMClient:
         self.provider = self.config.model.provider
         self.model_name = self.config.model.name
         self.api_base = self.config.model.api_base
+        self.timeout = getattr(self.config.model, "timeout", 120)
+
+        self._openrouter_client = OpenRouterClient(
+            api_base=self.api_base,
+            model_name=self.model_name,
+            timeout=self.timeout
+        )
 
     def _mock_generate(self, messages: List[Dict[str, str]], prompt_text: str) -> str:
         """Deterministic mock generator for offline unit testing."""
@@ -61,7 +137,20 @@ class LLMClient:
             logger.info(f"Using Mock LLM Client -> '{prompt_summary}...'")
             return self._mock_generate(messages, prompt_summary)
 
-        # Attempt Ollama backend
+        # OpenRouter provider
+        if self.provider == "openrouter":
+            res = self._openrouter_client.generate(
+                messages=messages,
+                temperature=temp,
+                max_tokens=max_tok,
+                seed=pinned_seed
+            )
+            if res is not None:
+                return res
+            logger.warning("OpenRouter call failed or API key unconfigured. Falling back to Mock Engine.")
+            return self._mock_generate(messages, prompt_summary)
+
+        # Legacy Ollama fallback if configured
         if self.provider == "ollama":
             url = f"{self.api_base.rstrip('/')}/api/chat"
             payload = {
@@ -75,18 +164,14 @@ class LLMClient:
                 }
             }
             try:
-                response = requests.post(url, json=payload, timeout=5)
+                response = requests.post(url, json=payload, timeout=self.timeout)
                 if response.status_code == 200:
                     resp_json = response.json()
                     content = resp_json.get("message", {}).get("content", "")
                     logger.info(f"Ollama response received for '{self.model_name}' ({len(content)} chars)")
                     return content
-                else:
-                    logger.warning(f"Ollama returned HTTP {response.status_code}. Falling back to Mock Engine.")
-                    return self._mock_generate(messages, prompt_summary)
             except Exception as e:
-                logger.warning(f"Ollama API connection failed ({e}). Falling back to Mock Engine.")
-                return self._mock_generate(messages, prompt_summary)
+                logger.warning(f"Ollama connection failed ({e}). Falling back to Mock Engine.")
 
         # Default fallback
         return self._mock_generate(messages, prompt_summary)

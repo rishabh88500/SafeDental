@@ -15,12 +15,13 @@ class DomainConfig(BaseModel):
 
 
 class ModelConfig(BaseModel):
-    provider: str = "ollama"
-    name: str = "llama3.1:8b-instruct"
-    api_base: str = "http://localhost:11434"
+    provider: str = "openrouter"
+    name: str = "meta-llama/llama-3.1-8b-instruct"
+    api_base: str = "https://openrouter.ai/api/v1"
     temperature: float = 0.0
     max_tokens: int = 512
     seed: int = 42
+    timeout: int = 120
 
 
 class RetrievalConfig(BaseModel):

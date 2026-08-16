@@ -17,12 +17,13 @@ evaluation:
   output_dir: results/
   seed: 42
 model:
-  api_base: http://localhost:11434
+  api_base: https://openrouter.ai/api/v1
   max_tokens: 512
-  name: llama3.1:8b-instruct
-  provider: ollama
+  name: meta-llama/llama-3.1-8b-instruct
+  provider: openrouter
   seed: 42
   temperature: 0.0
+  timeout: 120
 project:
   name: SafeDental
   version: 0.1.0
