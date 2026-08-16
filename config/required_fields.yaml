@@ -1,0 +1,14 @@
+required_fields:
+  chief_complaint:
+    - "pain_location"
+    - "pain_character"
+    - "pain_onset_duration"
+    - "pain_triggers"
+
+  clinical_signs:
+    - "swelling_presence"
+    - "fever_presence"
+
+  medical_history:
+    - "systemic_conditions"
+    - "drug_allergies"

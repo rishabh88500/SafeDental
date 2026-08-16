@@ -1,0 +1,38 @@
+red_flags:
+  airway:
+    keywords:
+      - "difficulty swallowing"
+      - "dysphagia"
+      - "difficulty breathing"
+      - "dyspnea"
+      - "stridor"
+      - "tongue pushed back"
+      - "floor of mouth swelling"
+      - "inability to swallow saliva"
+    severity: "EMERGENCY_CRITICAL"
+    action: "ESCALATE"
+    rationale: "Potential airway compromise or Ludwig's angina risk."
+
+  systemic_infection:
+    keywords:
+      - "high fever"
+      - "chills"
+      - "altered mental status"
+      - "confusion"
+      - "lethargy"
+      - "tachycardia"
+    severity: "HIGH_CRITICAL"
+    action: "ESCALATE"
+    rationale: "Signs of severe systemic infection or impending sepsis."
+
+  spreading_fascial_space:
+    keywords:
+      - "trismus"
+      - "limited mouth opening"
+      - "periorbital swelling"
+      - "swelling under eye"
+      - "rapidly spreading swelling"
+      - "submandibular swelling"
+    severity: "HIGH_CRITICAL"
+    action: "ESCALATE"
+    rationale: "Involvement of deep fascial spaces or risk of cavernous sinus thrombosis."

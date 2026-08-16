@@ -1,0 +1,7 @@
+{
+  "embedding_model": "BAAI/bge-small-en",
+  "embedding_dimension": 384,
+  "total_chunks_indexed": 14,
+  "license": "MIT",
+  "index_type": "FAISS_FLAT_IP"
+}

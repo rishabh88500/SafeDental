@@ -1,0 +1,11 @@
+{
+  "experiment_id": "exp_test_arma_001",
+  "pipeline_arm": "ARM_A",
+  "created_at": "2026-08-16T15:18:36.795422Z",
+  "git_commit_hash": "uncommitted",
+  "config_version": "0.1.0",
+  "model_name": "llama3.1:8b-instruct",
+  "model_provider": "ollama",
+  "total_cases_evaluated": 1,
+  "predictions_file": "experiments/arm_a/exp_test_arma_001/predictions.jsonl"
+}

@@ -1,0 +1,40 @@
+project:
+  name: SafeDental
+  version: "0.1.0"
+
+domain:
+  name: acute_dental_pain_odontogenic_infection
+  description: "Text-only clinical decision support for acute dental pain and odontogenic infections"
+
+model:
+  provider: "ollama"
+  name: "llama3.1:8b-instruct"
+  api_base: "http://localhost:11434"
+  temperature: 0.0
+  max_tokens: 512
+  seed: 42
+
+retrieval:
+  enabled: true
+  top_k: 5
+  embedding_model: "BAAI/bge-small-en"
+  vector_store: "faiss"
+  chunk_size: 400
+  chunk_overlap: 50
+
+dataset:
+  version: "1.0.0"
+  raw_dir: "data/cases/raw"
+  validated_path: "data/cases/validated/cases.jsonl"
+  train_path: "data/cases/train.jsonl"
+  dev_path: "data/cases/dev.jsonl"
+  test_path: "data/cases/test.jsonl"
+
+determinability:
+  red_flags_path: "config/red_flags.yaml"
+  required_fields_path: "config/required_fields.yaml"
+
+evaluation:
+  seed: 42
+  output_dir: "results/"
+  human_eval_sample_size: 50

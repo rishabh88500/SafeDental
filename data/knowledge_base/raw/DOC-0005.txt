@@ -1,0 +1,9 @@
+# NICE Guidelines: Triage and Urgent Dental Escalation
+
+## Section 1: Classification of Urgency
+1. Emergency (Immediate Hospital Referral): Signs of airway compromise, facial trauma, severe spreading cellulitis, or systemic sepsis.
+2. Urgent (Within 24 Hours): Severe dental pain not controlled by analgesia, localized intraoral swelling, or dental avulsion trauma.
+3. Routine: Mild localized sensitivity, asymptomatic decay, or aesthetic inquiries.
+
+## Section 2: Non-Dental Differential Diagnosis
+Dental clinicians must rule out non-odontogenic facial pain causes including trigeminal neuralgia, temporomandibular joint dysfunction (TMD), maxillary sinusitis, and cardiac angina radiating to the mandible.

@@ -1,0 +1,12 @@
+# Evidence-Based Pharmacologic Management of Acute Dental Pain
+
+## Section 1: First-Line Analgesic Regimen
+Combination therapy with nonsteroidal anti-inflammatory drugs (NSAIDs) and acetaminophen (paracetamol) provides superior analgesia to opioid monotherapy for inflammatory pulpal and postoperative dental pain.
+
+## Section 2: Recommended Dosing Strategy
+1. Mild Pain: Ibuprofen 200mg to 400mg orally every 4 to 6 hours as needed.
+2. Moderate to Severe Pain: Combination of Ibuprofen 400mg + Acetaminophen 500mg taken together every 6 hours (Max Ibuprofen: 2400mg/day; Max Acetaminophen: 3000mg/day).
+
+## Section 3: Contraindications & Precautions
+- Ibuprofen / NSAIDs: Contraindications include active peptic ulcer disease, severe renal impairment, history of GI bleeding, asthma triggered by NSAIDs, and third trimester pregnancy.
+- Acetaminophen: Contraindication in severe liver failure or chronic alcoholism.

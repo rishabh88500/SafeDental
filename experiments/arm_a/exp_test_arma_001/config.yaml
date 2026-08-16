@@ -1,0 +1,35 @@
+dataset:
+  dev_path: data/cases/dev.jsonl
+  raw_dir: data/cases/raw
+  test_path: data/cases/test.jsonl
+  train_path: data/cases/train.jsonl
+  validated_path: data/cases/validated/cases.jsonl
+  version: 1.0.0
+determinability:
+  red_flags_path: config/red_flags.yaml
+  required_fields_path: config/required_fields.yaml
+domain:
+  description: Text-only clinical decision support for acute dental pain and odontogenic
+    infections
+  name: acute_dental_pain_odontogenic_infection
+evaluation:
+  human_eval_sample_size: 50
+  output_dir: results/
+  seed: 42
+model:
+  api_base: http://localhost:11434
+  max_tokens: 512
+  name: llama3.1:8b-instruct
+  provider: ollama
+  seed: 42
+  temperature: 0.0
+project:
+  name: SafeDental
+  version: 0.1.0
+retrieval:
+  chunk_overlap: 50
+  chunk_size: 400
+  embedding_model: BAAI/bge-small-en
+  enabled: true
+  top_k: 5
+  vector_store: faiss

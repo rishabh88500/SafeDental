@@ -1,0 +1,14 @@
+# SDCEP Antimicrobial Stewardship Guidance for Acute Dental Pain
+
+## Section 1: Core Principles of Prescribing
+Antibiotics do not cure dental pain. Operative intervention to drain pus, remove the necrotic pulp, or extract the tooth is the definitive management. Prescribing antibiotics without operative treatment leads to treatment failure and resistant strains.
+
+## Section 2: Management of Acute Odontogenic Abscess
+1. Localized Intraoral Swelling: Drain the swelling via incisional drainage or root canal instrumentation. Do not prescribe antibiotics.
+2. Spreading Edema / Systemic Infection: Prescribe Amoxicillin 500mg tds for up to 5 days, plus definitive operative drainage.
+3. Severe Spreading / Airway Risk: Refer immediately to maxillofacial/hospital emergency care.
+
+## Section 3: Penicillin Allergy Protocol
+In confirmed penicillin allergy:
+- Erythromycin 500mg 4 times daily OR Clarithromycin 500mg twice daily for 5 days.
+- Metronidazole 400mg 3 times daily may be added for anaerobic spreading infection.
