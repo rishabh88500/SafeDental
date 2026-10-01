@@ -1,22 +1,23 @@
 # Current Task
 
-**Status**: Chunk 6 Complete -> Transitioning to Chunk 7 (Safety & Abstention Pipeline: Arms B & C)
+**Status**: ALL CHUNKS COMPLETE! (Project Fully Built, Evaluated, and Integrated)
 
-## What was completed in Chunk 6 (Dental Evidence RAG Pipeline)?
-1. **RAG Schemas**: Created `src/rag/schemas.py` (`RetrievedChunk`, `RetrieverResult`).
-2. **Dense Embedding Engine**: Implemented `src/rag/embed.py` wrapping `sentence-transformers` (`BAAI/bge-small-en`, 384 dims, MIT License) with deterministic fallback.
-3. **Vector Index Manager**: Implemented `src/rag/index.py` saving FAISS Flat IP index `data/index/faiss_index.bin` and chunks mapping `data/index/index_chunks.json`.
-4. **Retriever Module**: Implemented `src/rag/retrieve.py` (`DentalRetriever`) with query normalization and traceable clinical citation formatting (`[ADA 2019, DOC-0001, CHK-0001-0002]`).
-5. **Retrieval Benchmark Dataset**: Created `data/benchmarks/retrieval_benchmark.json` (15 hand-curated query-doc pairs).
-6. **Benchmark Evaluator**: Implemented `src/rag/eval_retrieval.py` achieving:
-   - **Recall@1**: 93.33%
-   - **Recall@3**: 100.00%
-   - **Recall@5**: 100.00%
-   - **MRR**: 0.9667
-7. **Unit Test Suite**: Created `tests/test_rag.py` expanding test suite to **37 passing Pytest unit tests**.
+## What was completed in Chunk 10 (Streamlit UI, Demo Cases & API Integration)?
+1. **Curated Demo Scenarios**: Created `data/cases/demo_cases.json` featuring 5 clinical presentations (`DETERMINABLE`, `UNDERDETERMINED`, `SAFETY-CRITICAL`, `CONFLICTING`, and `OUT-OF-SCOPE`).
+2. **Interactive Streamlit Web Dashboard**: Created `app/main.py` providing:
+   - Case input selection (Demo Scenarios vs. Custom Case Narrative entry).
+   - Arm selection (`Arm A`, `Arm B`, `Arm C`, or **Live Side-by-Side Comparison**).
+   - Visual action badges (`ANSWER`, `ASK`, `ABSTAIN`, `ESCALATE`).
+   - Diagnostic rule trigger audit trail & evidence citation rendering.
+3. **FastAPI REST Service**: Created `api/main.py` exposing:
+   - `GET /health`
+   - `POST /api/analyze`
+   - `GET /api/benchmark/summary`
+4. **Final Research Documentation**: Created `docs/FINAL_RESEARCH_REPORT.md` compiling abstract, research questions, determinability engine methodology, RAG vector index specs, comparative metrics, and clinical conclusions.
+5. **Unit Test Suite Expansion**: Created `tests/test_ui_api.py` expanding test suite to **54 passing Pytest unit tests**.
 
-## Next Steps (Chunk 7: Safety & Abstention Pipeline - Arms B & C)
-1. Build Arm B (Safety Prompting Pipeline) integrating Determinability Engine without RAG.
-2. Build Arm C (Proposed System Pipeline) integrating Determinability Engine + Dental RAG + Citation Formatting.
-3. Implement evidence verification logic (checking if generated claims are supported by retrieved chunks).
-4. Run Arm B and Arm C pipelines on `data/cases/dev.jsonl` (71 cases).
+## System Command Reference
+- Run Web UI: `streamlit run app/main.py`
+- Run REST API: `uvicorn api.main:app --reload`
+- Run Evaluation Benchmark: `python -m src.eval.eval_benchmark`
+- Run Test Suite: `pytest`

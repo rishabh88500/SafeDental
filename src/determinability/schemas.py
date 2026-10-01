@@ -40,3 +40,19 @@ class DeterminabilityResult(BaseModel):
     llm_classification: Optional[LLMClassification] = None
     final_rationale: str
     is_safety_override: bool = False
+
+    @property
+    def primary_rule_triggered(self) -> Optional[str]:
+        if self.triggered_rules:
+            return self.triggered_rules[0].rule_category
+        return None
+
+    @property
+    def missing_information(self) -> List[str]:
+        return self.missing_info
+
+    @property
+    def checklist(self) -> Optional[ChecklistCoverage]:
+        return self.checklist_status
+
+

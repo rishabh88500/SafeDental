@@ -73,3 +73,27 @@ def test_determinability_engine_determinable():
     assert res.label == DeterminabilityLabel.DETERMINABLE
     assert res.action == ExpectedAction.ANSWER
     assert len(res.missing_info) == 0
+
+
+def test_hard_safety_rule_evaluator_negation():
+    rule_eval = HardSafetyRuleEvaluator()
+    # Negated red flags should NOT trigger rules
+    text = "Clinical Findings: Deep caries tooth 36, No vestibular swelling, Afebrile (temp 36.8 C), No trismus, Normal swallowing."
+    triggers = rule_eval.evaluate(text)
+    assert len(triggers) == 0
+
+    # True positive red flag should still trigger
+    pos_text = "Clinical Findings: Deep caries tooth 36 with severe trismus and floor of mouth swelling."
+    pos_triggers = rule_eval.evaluate(pos_text)
+    assert len(pos_triggers) >= 1
+    assert any(t.rule_category == "spreading_fascial_space" for t in pos_triggers)
+
+
+def test_determinability_result_checklist_property():
+    engine = ClinicalDeterminabilityEngine()
+    text = "28M with localized pain in tooth #30 for 3 days. Gums slightly tender, no swelling, temperature 98.6F. No medical history or drug allergies."
+    res = engine.evaluate_text("test-004", text)
+    # Both .checklist and .checklist_status should be accessible
+    assert res.checklist is not None
+    assert res.checklist_status is not None
+    assert res.checklist.is_complete is True

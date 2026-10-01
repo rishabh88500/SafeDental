@@ -86,7 +86,17 @@ class LLMDeterminabilityClassifier:
         text_lower = original_text.lower()
         resp_lower = raw_resp.lower()
 
-        if "safety-critical" in resp_lower or "emergency" in resp_lower or "swallowing" in text_lower or "breathing" in text_lower:
+        # Check emergency keywords with negation detection
+        from src.determinability.rules import is_negated
+        has_emergency_keyword = False
+        for kw in ["difficulty swallowing", "difficulty breathing", "dysphagia", "dyspnea", "stridor", "trismus", "floor of mouth swelling"]:
+            if kw in text_lower:
+                m = re.search(r"\b" + re.escape(kw) + r"\b", text_lower)
+                if m and not is_negated(text_lower, m.start()):
+                    has_emergency_keyword = True
+                    break
+
+        if "safety-critical" in resp_lower or "emergency" in resp_lower or has_emergency_keyword:
             return LLMClassification(
                 predicted_label=DeterminabilityLabel.SAFETY_CRITICAL,
                 predicted_action=ExpectedAction.ESCALATE,

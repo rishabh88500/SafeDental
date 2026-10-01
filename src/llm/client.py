@@ -98,15 +98,83 @@ class LLMClient:
 
     def _mock_generate(self, messages: List[Dict[str, str]], prompt_text: str) -> str:
         """Deterministic mock generator for offline unit testing."""
+        import re
         user_msg = ""
+        sys_msg = ""
         for m in messages:
             if m.get("role") == "user":
                 user_msg = m.get("content", "")
+            elif m.get("role") == "system":
+                sys_msg = m.get("content", "")
 
-        # Check key intent
-        if "swallowing" in user_msg.lower() or "airway" in user_msg.lower() or "emergency" in user_msg.lower():
+        user_lower = user_msg.lower()
+        sys_lower = sys_msg.lower()
+
+        # If calling from LLMDeterminabilityClassifier, return schema-compliant JSON
+        if "clinical determinability classifier" in sys_lower:
+            from src.determinability.rules import is_negated
+            is_emergency = False
+            for kw in ["difficulty swallowing", "difficulty breathing", "stridor", "trismus", "floor of mouth swelling"]:
+                if kw in user_lower:
+                    m = re.search(r"\b" + re.escape(kw) + r"\b", user_lower)
+                    if m and not is_negated(user_lower, m.start()):
+                        is_emergency = True
+                        break
+
+            if is_emergency or "emergency" in user_lower:
+                return json.dumps({
+                    "label": "SAFETY-CRITICAL",
+                    "action": "ESCALATE",
+                    "missing_info": [],
+                    "rationale": "Emergency airway or spreading fascial space signs detected.",
+                    "confidence": 0.98
+                })
+            elif "ignore" in user_lower or "oxycodone" in user_lower or "adversarial" in user_lower or "whitening" in user_lower:
+                return json.dumps({
+                    "label": "OUT-OF-SCOPE",
+                    "action": "ABSTAIN",
+                    "missing_info": [],
+                    "rationale": "Adversarial or out of scope clinical request.",
+                    "confidence": 0.95
+                })
+            elif "vitality testing and percussion tests are entirely normal" in user_lower or "conflicting" in user_lower:
+                return json.dumps({
+                    "label": "CONFLICTING",
+                    "action": "ABSTAIN",
+                    "missing_info": [],
+                    "rationale": "Severe pain reported despite normal diagnostic tests.",
+                    "confidence": 0.90
+                })
+            elif "missing" in user_lower or "should i take amoxicillin" in user_lower or "what medicine should i take" in user_lower:
+                return json.dumps({
+                    "label": "UNDERDETERMINED",
+                    "action": "ASK",
+                    "missing_info": ["swelling_presence", "fever_presence", "drug_allergies"],
+                    "rationale": "Key clinical facts missing from presentation.",
+                    "confidence": 0.90
+                })
+            else:
+                return json.dumps({
+                    "label": "DETERMINABLE",
+                    "action": "ANSWER",
+                    "missing_info": [],
+                    "rationale": "Complete clinical presentation suitable for evidence-based advice.",
+                    "confidence": 0.95
+                })
+
+        # Regular pipeline mock response
+        from src.determinability.rules import is_negated
+        is_airway = False
+        for kw in ["difficulty swallowing", "difficulty breathing", "stridor", "airway compromise"]:
+            if kw in user_lower:
+                m = re.search(r"\b" + re.escape(kw) + r"\b", user_lower)
+                if m and not is_negated(user_lower, m.start()):
+                    is_airway = True
+                    break
+
+        if is_airway or ("emergency" in user_lower and "no emergency" not in user_lower):
             return "RECOMMENDATION: Immediately seek emergency hospital evaluation due to potential airway threat."
-        elif "missing" in user_msg.lower() or "need antibiotics" in user_msg.lower():
+        elif "missing" in user_lower or "need antibiotics" in user_lower:
             return "RECOMMENDATION: Amoxicillin 500mg three times daily is recommended for dental pain."
         else:
             return "RECOMMENDATION: Maintain good oral hygiene, apply localized cold compress, and visit a licensed dentist for an evaluation."

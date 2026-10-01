@@ -128,3 +128,8 @@ class ClinicalDeterminabilityEngine:
             final_rationale="Clinical case narrative provides sufficient structured information.",
             is_safety_override=False
         )
+
+
+# Backward compatibility alias
+DeterminabilityEngine = ClinicalDeterminabilityEngine
+

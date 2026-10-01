@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-08-20
+### Added
+- **Curated Demo Scenarios**: Created `data/cases/demo_cases.json` covering 5 canonical clinical behaviors (`DETERMINABLE`, `UNDERDETERMINED`, `SAFETY-CRITICAL`, `CONFLICTING`, `OUT-OF-SCOPE`).
+- **Streamlit Web Dashboard**: Built interactive web application (`app/main.py`) featuring case narrative selection, arm switching (`Arm A`, `Arm B`, `Arm C`, or `Side-by-Side Comparison`), action status badges, triggered diagnostic rule audit trail, and traceable evidence citations.
+- **FastAPI REST Endpoint**: Implemented REST service (`api/main.py`) with `GET /health`, `POST /api/analyze`, and `GET /api/benchmark/summary`.
+- **Final Research Report**: Completed comprehensive research documentation (`docs/FINAL_RESEARCH_REPORT.md`).
+- **Unit Test Suite**: Created `tests/test_ui_api.py` expanding test suite to **54 passing Pytest unit tests**.
+
+## [0.7.0] - 2026-08-20
+### Added
+- **Safety & Abstention Pipeline**: Implemented Arm B (`src/pipelines/arm_b.py`) and Arm C (`src/pipelines/arm_c.py`) with claim-level evidence verification (`src/rag/evidence_verifier.py`).
+- **Evaluation Schemas**: Created `src/eval/schemas.py` (`CaseEvalResult`, `ArmMetrics`, `ComparativeEvaluationReport`).
+- **Evaluation Metric Engine**: Implemented `src/eval/metrics.py` supporting 4 primary metrics (Unsafe Recommendation Rate, Safe Abstention Rate, Clinical Answer Accuracy, Over-Abstention Rate) across both `PipelineResult` and `ModelResponse` objects.
+- **Statistical Significance Module**: Implemented `src/eval/significance.py` (`mcnemar_test_paired`) for paired binary outcome significance testing.
+- **Visualization Module**: Implemented `src/eval/visualize.py` using Matplotlib to plot grouped metric bar charts, confusion matrices, and risk-coverage curves.
+- **Comparative Benchmark Execution Controller**: Implemented `src/eval/eval_benchmark.py` running Arms A, B, C on 71 dev cases, saving `experiments/eval_results/dev_comparative_summary.json` and generating `docs/EVALUATION_REPORT_DEV.md`.
+- **Unit Test Expansion**: Created `tests/test_eval.py` and `tests/test_pipelines_b_c.py` expanding test suite to **50 passing Pytest unit tests**.
+
 ## [0.5.0] - 2026-08-16
 ### Added
 - **RAG Schemas**: Created `src/rag/schemas.py` (`RetrievedChunk`, `RetrieverResult`).
