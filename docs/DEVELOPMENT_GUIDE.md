@@ -1,28 +1,110 @@
-# Development Guide
+# SafeDental Development & Operations Guide
 
-## Project Phases
-- **Phase 0:** Project comprehension.
-- **Phase 1:** Project memory & scaffold setup.
-- **Phase 2:** Chunk 1 implementation (protocol, config).
-- **Phase 3+:** Follow the 10 chunks from `wholeplan.md`.
+## 1. Project Overview & Core Principles
 
-## The Golden Rule
-> A **completed, honestly evaluated A/B/C comparison** — even if it concludes "safety prompting helps but RAG adds little" — is a **far stronger final-year project** than a half-finished, impressive-looking multi-agent system.
+SafeDental is a clinical decision-support and safety architecture for acute dental pain and odontogenic infections.
 
-**If we fall behind:** 
-- Drop QLoRA (Arm D)
-- Drop reranker
-- Drop FastAPI
-- Drop multi-reviewer eval
+### The Golden Rule of Evaluation
+> A **completed, honestly evaluated comparison** across all study arms—demonstrating real trade-offs between safety, abstention, and clinical utility—is a **far stronger project** than an unevaluated or unconstrained model.
 
-**NEVER drop:**
-- The dataset quality
-- The determinability safety recall
-- The hidden-test comparison
+### Locked Research Boundaries
+* **Domain**: Acute dental pain and odontogenic infection ONLY.
+* **Modality**: Text-only clinical case narratives.
+* **Safety First**: Never allow an LLM to guess dosages or advise definitive treatment when essential clinical facts are missing.
+* **Guideline Grounding**: All clinical recommendations must align with peer-reviewed evidence (ADA 2019, SDCEP 2021).
 
-## Environment & Run Instructions
-*(To be populated in Chunk 1)*
-- Activate virtual environment: `...`
-- Install dependencies: `pip install -r requirements.txt`
-- Run Streamlit: `streamlit run app/streamlit_app.py`
-- Run LLM: `ollama run llama3.1:8b-instruct` (or similar depending on config).
+---
+
+## 2. Environment Setup
+
+### Prerequisites
+* Python 3.9, 3.10, or 3.11
+* Virtual environment tool (`venv` or `conda`)
+* macOS or Linux
+
+### Installation
+```bash
+# 1. Clone the repository
+git clone https://github.com/rishabh88500/SafeDental.git
+cd SafeDental
+
+# 2. Create and activate virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 3. Install dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### Configuration (`.env`)
+Copy `.env.example` to `.env`:
+```bash
+cp .env.example .env
+```
+Populate your OpenRouter API key:
+```env
+OPENROUTER_API_KEY=sk-or-v1-your-key-here
+```
+*(Note: If no API key is set, the system automatically falls back to the deterministic Mock Engine for testing and evaluation).*
+
+---
+
+## 3. Running System Components
+
+### 1. Interactive Streamlit Web Dashboard
+Runs the live 3-tab decision support UI on port 8501:
+```bash
+streamlit run app/main.py
+```
+Access at: **http://localhost:8501**
+
+### 2. FastAPI REST API Service
+Runs the backend REST service on port 8000:
+```bash
+uvicorn api.main:app --reload --port 8000
+```
+Interactive Swagger documentation: **http://localhost:8000/docs**
+
+### 3. OdontoEval Benchmark Evaluation
+Executes the comparative evaluation across Arm A, Arm B, and Arm C on the development dataset:
+```bash
+python -m src.eval.eval_benchmark
+```
+Outputs are generated in `experiments/eval_results/` and `docs/EVALUATION_REPORT_DEV.md`.
+
+### 4. Running Automated Tests
+Execute the Pytest test suite:
+```bash
+pytest -v
+```
+
+---
+
+## 4. Key CLI Scripts & Utilities
+
+* **Inspect Knowledge Base Ingestion**:
+  ```bash
+  python -m src.kb.ingest
+  python -m src.kb.populate_corpus
+  ```
+* **Build FAISS Vector Index**:
+  ```bash
+  python -m src.rag.index
+  ```
+* **Run RAG Retrieval Benchmark**:
+  ```bash
+  python -m src.rag.eval_retrieval
+  ```
+* **Run Arm A Baseline Pipeline**:
+  ```bash
+  python -m src.pipelines.run_arm_a_dev
+  ```
+
+---
+
+## 5. Development Best Practices & Safety Guards
+
+1. **Sealed Test Set Protection**: Never import or read `data/cases/test.jsonl` during development or training. Any access attempt is guarded by `src/utils/data_guard.py` and will raise `SealedTestAccessError`.
+2. **Clinical Negation Handling**: Always verify that clinical keywords are evaluated with negation checks (e.g. `is_negated()` in `src/determinability/rules.py`) so negative findings like *"No trismus"* or *"Afebrile"* do not trigger false alerts.
+3. **Traceable Citations**: Always maintain chunk identifiers when adding or modifying knowledge base documents in `data/knowledge_base/`.

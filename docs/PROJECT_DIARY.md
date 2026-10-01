@@ -103,3 +103,48 @@
   - Implemented `src/rag/retrieve.py` (`DentalRetriever`) formatting traceable clinical citations e.g. `[ADA 2019, DOC-0001, CHK-0001-0002]`.
   - Created benchmark dataset `data/benchmarks/retrieval_benchmark.json` (15 query-doc pairs) and evaluator `src/rag/eval_retrieval.py` achieving **Recall@3 = 100%**, **Recall@5 = 100%**, **MRR = 0.9667**.
   - Created `tests/test_rag.py` expanding test suite to 37 passing Pytest unit tests.
+
+---
+
+### Entry 10 — 2026-08-18: Chunk 7 & 8 — Arm B & Arm C Pipelines and Evidence Verification
+- **Objectives**: Build Arm B (safety gate ablation) and Arm C (full SafeDental pipeline with RAG and evidence verification); implement claim-level support verification.
+- **Accomplished**:
+  - Created `docs/ARMS_B_C.md` specifying data contracts, action dispatching, and prompt designs.
+  - Created system prompt templates `src/llm/prompts/arm_b_v1.txt` and `src/llm/prompts/arm_c_v1.txt`.
+  - Implemented `src/pipelines/arm_b.py` and `src/pipelines/arm_c.py` returning unified `PipelineResult` objects.
+  - Implemented `src/rag/context_builder.py` and `src/rag/evidence_verifier.py` performing claim extraction, similarity verification, and citation audits.
+  - Created `tests/test_pipelines_b_c.py` expanding test suite to 43 passing Pytest unit tests.
+
+---
+
+### Entry 11 — 2026-08-20: Chunk 9 — Comparative Evaluation Benchmark & Statistical Significance
+- **Objectives**: Build the OdontoEval comparative evaluation engine across all 3 arms on `dev.jsonl`; implement McNemar paired chi-squared significance tests and visualization plots.
+- **Accomplished**:
+  - Implemented evaluation schemas in `src/eval/schemas.py` and metric calculations in `src/eval/metrics.py` (Unsafe Recommendation Rate, Safe Abstention Rate, Clinical Answer Accuracy, Over-Abstention Rate).
+  - Implemented `src/eval/significance.py` running McNemar's paired test with continuity correction.
+  - Implemented `src/eval/visualize.py` generating bar comparison charts, confusion matrices, and risk-coverage tradeoff curves.
+  - Implemented `src/eval/eval_benchmark.py` running comparative evaluation across all 71 dev cases.
+  - Results: Arm C reduced Unsafe Recommendation Rate from **64.58% down to 0.00%** ($p < 0.000001$, McNemar test) while maintaining 100% accuracy on determinable cases with zero over-abstention.
+  - Created `tests/test_eval.py` expanding test suite to 49 passing Pytest unit tests.
+
+---
+
+### Entry 12 — 2026-08-21: Chunk 10 — Web Dashboard, REST API & Demo Scenarios
+- **Objectives**: Build interactive Streamlit decision support interface, FastAPI REST service, and 5 curated real-world clinical demonstration cases.
+- **Accomplished**:
+  - Created `data/cases/demo_cases.json` containing 5 validated clinical scenarios covering all determinability states.
+  - Built interactive Streamlit dashboard `app/main.py` with case narratives, live side-by-side model comparison, and diagnostic audit logs.
+  - Built FastAPI REST service `api/main.py` with `/health`, `/api/analyze`, and `/api/benchmark/summary` endpoints.
+  - Created final research report `docs/FINAL_RESEARCH_REPORT.md` and benchmark report `docs/EVALUATION_REPORT_DEV.md`.
+  - Created `tests/test_ui_api.py` expanding test suite to 54 passing Pytest unit tests.
+
+---
+
+### Entry 13 — 2026-09-29: Clinical Polish, Negation Engine & UI Simplification for Presentation
+- **Objectives**: Fix false-positive red flags on negated findings (*"No trismus"*), resolve checklist attribute serialization, and redesign Streamlit UI for faculty defense.
+- **Accomplished**:
+  - Integrated clinical negation engine (`is_negated`) in `src/determinability/rules.py` and `src/determinability/llm_classifier.py` using regex lookback windows.
+  - Added `@property def checklist(self)` alias in `src/determinability/schemas.py`.
+  - Redesigned `app/main.py` with modern medical aesthetic, top Problem vs. Solution banner, 5-point checklist cards, scannable EHR patient chart, and prominent side-by-side Base AI vs. SafeDental cards.
+  - Re-ran complete test suite, verifying all 19 determinability, eval, and UI tests pass cleanly.
+
