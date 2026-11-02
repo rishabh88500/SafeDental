@@ -1,0 +1,22 @@
+{
+  "kb_version": "0.1.0",
+  "total_documents": 5,
+  "total_chunks": 14,
+  "topic_distribution": {
+    "urgent_escalation_red_flags": 2,
+    "antibiotic_stewardship": 2,
+    "analgesia_protocols": 1
+  },
+  "license_distribution": {
+    "APPROVED_OPEN_ACCESS": 5
+  },
+  "source_approval_status": {
+    "DOC-0003": "APPROVED_OPEN_ACCESS",
+    "DOC-0002": "APPROVED_OPEN_ACCESS",
+    "DOC-0005": "APPROVED_OPEN_ACCESS",
+    "DOC-0004": "APPROVED_OPEN_ACCESS",
+    "DOC-0001": "APPROVED_OPEN_ACCESS"
+  },
+  "created_at": "2026-08-16T15:18:41.464242Z",
+  "manifest_checksum": "3a6b094b29621c8adabe611c9fb5284e"
+}

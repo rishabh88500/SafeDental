@@ -1,0 +1,3 @@
+"""
+SafeDental Knowledge Base Package
+"""

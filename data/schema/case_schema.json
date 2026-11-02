@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ClinicalCase",
+  "type": "object",
+  "required": [
+    "case_id",
+    "dataset_version",
+    "clinical_domain",
+    "patient_context",
+    "symptoms",
+    "duration",
+    "medical_history",
+    "medications",
+    "allergies",
+    "clinical_findings",
+    "radiographic_information",
+    "question",
+    "determinability_label",
+    "critical_missing_information",
+    "safety_risk",
+    "expected_action",
+    "supporting_evidence_ids",
+    "expert_rationale",
+    "source_type",
+    "review_status",
+    "reviewer_notes",
+    "split",
+    "created_at"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "pattern": "^SD-[0-9]{4}$",
+      "description": "Unique identifier for the clinical scenario (e.g. SD-0001)"
+    },
+    "dataset_version": {
+      "type": "string",
+      "description": "Version of the dataset schema (e.g. 0.1.0)"
+    },
+    "clinical_domain": {
+      "type": "string",
+      "enum": ["acute_dental_pain_odontogenic_infection"],
+      "description": "Target clinical domain"
+    },
+    "patient_context": {
+      "type": "object",
+      "required": ["age", "sex", "relevant_history"],
+      "properties": {
+        "age": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 120
+        },
+        "sex": {
+          "type": "string",
+          "enum": ["M", "F", "Other", "Unknown"]
+        },
+        "relevant_history": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "symptoms": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Reported symptoms"
+    },
+    "duration": {
+      "type": "string",
+      "description": "Symptom duration (e.g. 3 days, 12 hours)"
+    },
+    "medical_history": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "medications": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "allergies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "clinical_findings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "radiographic_information": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "question": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Patient or clinician question text"
+    },
+    "determinability_label": {
+      "type": "string",
+      "enum": [
+        "DETERMINABLE",
+        "UNDERDETERMINED",
+        "SAFETY-CRITICAL",
+        "CONFLICTING",
+        "OUT-OF-SCOPE"
+      ]
+    },
+    "critical_missing_information": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of missing required clinical variables"
+    },
+    "safety_risk": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]
+    },
+    "expected_action": {
+      "type": "string",
+      "enum": ["ANSWER", "ASK", "ABSTAIN", "ESCALATE"]
+    },
+    "supporting_evidence_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "expert_rationale": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Clinical explanation for assigned label and expected action"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["expert_authored", "synthetic_drafted", "public_reference"]
+    },
+    "review_status": {
+      "type": "string",
+      "enum": ["draft", "expert_reviewed", "validated"]
+    },
+    "reviewer_notes": {
+      "type": "string"
+    },
+    "split": {
+      "type": "string",
+      "enum": ["train", "dev", "test", "unassigned"]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "ISO-8601 timestamp"
+    }
+  }
+}

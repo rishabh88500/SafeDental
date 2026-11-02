@@ -1,0 +1,11 @@
+{
+  "experiment_id": "exp_test_arma_001",
+  "pipeline_arm": "ARM_A",
+  "created_at": "2026-11-02T16:43:39.477993Z",
+  "git_commit_hash": "51349ac5615d06925a0bb419c197ea3da3580824",
+  "config_version": "0.1.0",
+  "model_name": "claude-opus-5.5",
+  "model_provider": "claude",
+  "total_cases_evaluated": 1,
+  "predictions_file": "experiments/arm_a/exp_test_arma_001/predictions.jsonl"
+}

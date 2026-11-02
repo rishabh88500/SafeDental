@@ -1,0 +1,19 @@
+# ADA Clinical Practice Guideline on Antibiotic Use for Odontogenic Infections
+
+## Section 1: Executive Summary & Scope
+This clinical practice guideline provides evidence-based recommendations on the use of systemic antibiotics for the urgent management of symptomatic irreversible pulpitis, symptomatic apical periodontitis, and localized acute apical abscess in immunocompetent adults.
+
+## Section 2: Pulpitis & Localized Dental Infections
+Systemic antibiotics are NOT recommended for immunocompetent adult patients presenting with symptomatic irreversible pulpitis or localized acute apical abscess without signs of systemic infection or spreading edema. Operative dental intervention (such as pulpectomy, root canal therapy, or extraction) is the primary definitive treatment.
+
+## Section 3: Indications for Systemic Antibiotics
+Systemic antibiotics are indicated ONLY as an adjunct to definitive operative treatment when the patient exhibits signs of spreading infection or systemic involvement, including:
+- Fever (> 100.4°F or 38°C)
+- Tachycardia or systemic malaise
+- Spreading facial swelling or edema
+- Trismus (mouth opening restricted)
+- Immunocompromised state
+
+## Section 4: First-Line Antibiotic Regimens
+For non-allergic adults: Amoxicillin 500mg orally 3 times daily for 3 to 7 days until clinical resolution.
+For penicillin-allergic patients: Clindamycin 300mg 4 times daily OR Azithromycin 500mg loading dose then 250mg daily.
